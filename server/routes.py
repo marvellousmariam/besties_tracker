@@ -18,10 +18,10 @@ def create_besties():
             if field not in data:
                 return jsonify({"msg":f"Missing field:{field}"})
         
-        name = data.get(name)
-        role = data.get(role)
-        description=data.get(description)
-        gender=data.get(gender)
+        name = data.get("name")
+        role = data.get("role")
+        description=data.get("description")
+        gender=data.get("gender")
         #fetch avatar image based on gender
         if gender == "male":
             img_url =f"https://avatar.iran.liara.run/public/boy?username={name}"

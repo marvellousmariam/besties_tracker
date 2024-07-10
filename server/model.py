@@ -9,12 +9,12 @@ class Bestie(db.Model):
     gender = db.Column(db.String(10),nullable=False)
     img_url=db.Column(db.String(200),nullable=True)
 
-def to_json(self):
-    return {
-        "id": self.id,
-        "name":self.name,
-        "role":self.role,
-        "description":self.description,
-        "gender":self.gender,
-        "img_url":self.img_url
+    def to_json(self):
+        return {
+            "id": self.id,
+            "name":self.name,
+            "role":self.role,
+            "description":self.description,
+            "gender":self.gender,
+            "imgUrl":self.img_url
     }
