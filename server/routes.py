@@ -15,7 +15,8 @@ def create_besties():
         data=request.json
         required_fields=["name","role","description","gender"]
         for field in required_fields:
-            if field not in data:
+            if field not in data or not data.get(field):
+                
                 return jsonify({"msg":f"Missing field:{field}"})
         
         name = data.get("name")
@@ -33,7 +34,7 @@ def create_besties():
         db.session.add(new_bestie)
         db.session.commit()
         
-        return jsonify({"msg":"A new Bestie"}),201
+        return jsonify(new_bestie.to_json()),201
     except Exception as e:
         db.session.rollback()
         return jsonify({"error":str(e)}),500
@@ -66,7 +67,7 @@ def update_bestie(id):
         bestie.description=data.get("description",bestie.description)
         bestie.gender=data.get("gender",bestie.gender)
         db.session.commit()    
-        return jsonify({"msg":""})
+        return jsonify(bestie.to_json()),200
     except Exception as e:
         db.session.rollback()
         return jsonify({"error":str(e)}),500

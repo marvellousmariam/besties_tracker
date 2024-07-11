@@ -4,7 +4,7 @@ import{ IoMoon, IoMoonOutline } from 'react-icons/io5'
 import {LuSun} from 'react-icons/lu'
 import CreateUser from './CreateUser'
 
-const Navbar = () => {
+const Navbar = ({setUsers}) => {
     const {colorMode, toggleColorMode}=useColorMode();
   return (
    <Container maxW={"900px"}>
@@ -22,7 +22,7 @@ const Navbar = () => {
             <Button onClick={toggleColorMode}>
                 {colorMode === "light"?<IoMoonOutline/>:<LuSun size={20}/>}
             </Button>
-            <CreateUser/>
+            <CreateUser setUsers={setUsers}/>
            </Flex>
         </Flex>
     </Box>
