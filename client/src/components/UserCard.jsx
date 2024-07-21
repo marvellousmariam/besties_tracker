@@ -8,7 +8,7 @@ const UserCard = ({user,setUsers}) => {
     const toast = useToast()
     const handleDelete=async () =>{
         try {
-            const res = await fetch(BASE_URL+"besties/"+user.id,{
+            const res = await fetch(BASE_URL+"deletebesties/"+user.id,{
                 method:"DELETE"
             })
             const data = await res.json();

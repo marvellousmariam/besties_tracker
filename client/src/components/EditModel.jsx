@@ -14,7 +14,7 @@ const EditModel = ({user,setUsers}) => {
       e.preventDefult();
       setIsLoading(true);
       try {
-        const res =await fetch(BASE_URL+"besties"+user.id,{
+        const res =await fetch(BASE_URL+"updatebesties"+user.id,{
           method:"PATCH",
           headers:{
             "Content-Type":"application/json"

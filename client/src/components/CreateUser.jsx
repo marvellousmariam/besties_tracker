@@ -14,7 +14,7 @@ const CreateUser = ({setUsers}) => {
       e.preventDefalut();
       setIsLoading(true);
       try{
-        const res=await fetch(BASE_URL+"besties",{
+        const res=await fetch(BASE_URL+"createbesties",{
           method:"POST",
           headers:{
             "Content-Type":"application/json",
